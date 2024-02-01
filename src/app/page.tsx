@@ -1,132 +1,371 @@
-// TODO: Remove this entire file and start your own project from scratch.
-// Happy coding!
-
 import Link from "next/link";
-import { GithubIcon } from "lucide-react";
+import { LucideProps } from "lucide-react";
 
-import { siteConfig } from "@/config";
-import { cn } from "@/lib/utils";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Input } from "@/components/ui/input";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
-export default function IndexPage() {
+export default function Component() {
   return (
-    <main className="container grid max-w-prose items-center gap-6 space-y-4 pb-8 pt-6 text-balance md:py-10">
-      <div className="flex min-h-[50vh] flex-col justify-center gap-3">
-        <h1 className="text-5xl font-bold">{siteConfig.title}</h1>
-        <p className="text-slate-500">{siteConfig.description}</p>
-        <div className="space-x-2">
-          <Link
-            className={cn(buttonVariants(), "space-x-2")}
-            href="https://github.com/A7med3bdulBaset/next-template"
-          >
-            <GithubIcon />
-            <span>Github</span>
-          </Link>
-          <ThemeToggle variant="outline" size="icon" />
+    <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
+      <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+        <div className="flex h-full max-h-screen flex-col gap-2">
+          <div className="flex h-[60px] items-center border-b px-6">
+            <Link className="flex items-center gap-2 font-semibold" href="#">
+              <BookIcon className="h-6 w-6" />
+              <span className="">Author Dashboard</span>
+            </Link>
+            <Button className="ml-auto h-8 w-8" size="icon" variant="outline">
+              <BellIcon className="h-4 w-4" />
+              <span className="sr-only">Toggle notifications</span>
+            </Button>
+          </div>
+          <div className="flex-1 overflow-auto py-2">
+            <nav className="grid items-start px-4 text-sm font-medium">
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="#"
+              >
+                <PlusIcon className="h-4 w-4" />
+                Add New Book
+              </Link>
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="#"
+              >
+                <BookIcon className="h-4 w-4" />
+                Manage Books
+              </Link>
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="#"
+              >
+                <BarChartIcon className="h-4 w-4" />
+                Track Sales
+              </Link>
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="#"
+              >
+                <DollarSignIcon className="h-4 w-4" />
+                Royalties
+              </Link>
+              <Link
+                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+                href="#"
+              >
+                <TextIcon className="h-4 w-4" />
+                Reader Communications
+              </Link>
+            </nav>
+          </div>
         </div>
       </div>
-      <div className="space-y-2">
-        <h2 className="text-3xl font-semibold">Included Features:</h2>
-        <ul className="list-disc ps-8 marker:text-2xl marker:text-primary-500/50">
-          <li>Next.js 13.4: App Router and Server Actions</li>
-          <li>Typescript</li>
-          <li>Tailwind CSS</li>
-          <li>
-            <Link href="https://ui.shadcn.com" target="_blank">
-              shadcn/ui
-            </Link>
-          </li>
-          <li>Lucide Icons</li>
-          <li>Next Themes: light/dark toggler</li>
-          <li>ESLint</li>
-          <li>Prettier with imports and tailwindcss classes sorting</li>
-        </ul>
+      <div className="flex flex-col">
+        <header className="flex h-14 items-center gap-4 border-b bg-gray-100/40 px-6 lg:h-[60px] dark:bg-gray-800/40">
+          <Link className="lg:hidden" href="#">
+            <BookIcon className="h-6 w-6" />
+            <span className="sr-only">Home</span>
+          </Link>
+          <div className="w-full flex-1">
+            <form>
+              <div className="relative">
+                <SearchIcon className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
+                <Input
+                  className="w-full appearance-none bg-white pl-8 shadow-none md:w-2/3 lg:w-1/3 dark:bg-gray-950"
+                  placeholder="Search books..."
+                  type="search"
+                />
+              </div>
+            </form>
+          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className="h-8 w-8 rounded-full border border-gray-200 dark:border-gray-800"
+                size="icon"
+                variant="ghost"
+              >
+                <img
+                  alt="Avatar"
+                  className="rounded-full"
+                  height="32"
+                  src="/placeholder.svg"
+                  style={{
+                    aspectRatio: "32/32",
+                    objectFit: "cover",
+                  }}
+                  width="32"
+                />
+                <span className="sr-only">Toggle user menu</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Settings</DropdownMenuItem>
+              <DropdownMenuItem>Support</DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </header>
+        <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
+          <div className="flex items-center">
+            <h1 className="text-lg font-semibold md:text-2xl">
+              Welcome, Author!
+            </h1>
+          </div>
+          <div className="rounded-lg border p-4 shadow-sm">
+            <form className="grid grid-cols-1 gap-4">
+              <Input className="py-2" type="file" />
+              <Input className="py-2" placeholder="Book Title" type="text" />
+              <Input className="py-2" placeholder="Genre" type="text" />
+              <Input
+                className="py-2"
+                placeholder="Publication Date"
+                type="date"
+              />
+              <Input className="py-2" placeholder="Status" type="text" />
+              <Button className="bg-primary py-2" type="submit">
+                Upload Book
+              </Button>
+            </form>
+          </div>
+          <div className="mt-4 rounded-lg border shadow-sm">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[80px]">Cover</TableHead>
+                  <TableHead className="max-w-[150px]">Title</TableHead>
+                  <TableHead className="hidden md:table-cell">Genre</TableHead>
+                  <TableHead className="hidden md:table-cell">
+                    Publication Date
+                  </TableHead>
+                  <TableHead>Status</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow>
+                  <TableCell>
+                    <img
+                      alt="Book cover"
+                      className="aspect-square rounded-md object-cover"
+                      height="64"
+                      src="/placeholder.svg"
+                      width="64"
+                    />
+                  </TableCell>
+                  <TableCell className="font-medium">The Great Novel</TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    Fiction
+                  </TableCell>
+                  <TableCell>January 2024</TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    Published
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <img
+                      alt="Book cover"
+                      className="aspect-square rounded-md object-cover"
+                      height="64"
+                      src="/placeholder.svg"
+                      width="64"
+                    />
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    The Next Bestseller
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    Non-fiction
+                  </TableCell>
+                  <TableCell>March 2024</TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    In Review
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>
+                    <img
+                      alt="Book cover"
+                      className="aspect-square rounded-md object-cover"
+                      height="64"
+                      src="/placeholder.svg"
+                      width="64"
+                    />
+                  </TableCell>
+                  <TableCell className="font-medium">
+                    The Mystery Unveiled
+                  </TableCell>
+                  <TableCell className="hidden md:table-cell">
+                    Mystery
+                  </TableCell>
+                  <TableCell>April 2024</TableCell>
+                  <TableCell className="hidden md:table-cell">Draft</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </main>
       </div>
+    </div>
+  );
+}
 
-      <div className="space-y-2">
-        <h2 className="text-3xl font-semibold">Scripts:</h2>
-        <p className="text-opacity-90">
-          This template uses{" "}
-          <span className="font-bold text-primary">pnpm</span> as the package
-          manager. If you want to use other package managers, you can delete{" "}
-          <span className="font-bold text-primary">pnpm-lock.yaml</span> and run{" "}
-          <span className="font-bold text-primary">npm install</span> or{" "}
-          <span className="font-bold text-primary">yarn install</span>.
-        </p>
-        <ul className="list-disc ps-8 marker:text-2xl marker:text-primary-500/50">
-          <li>
-            <span className="font-bold text-primary">dev</span> Start the
-            development server
-          </li>
-          <li>
-            <span className="font-bold text-primary">build</span> Build for
-            production
-          </li>
-          <li>
-            <span className="font-bold text-primary">start</span> Start
-            production server
-          </li>
-          <li>
-            <span className="font-bold text-primary">preview</span> Build and
-            start production server
-          </li>
-          <li>
-            <span className="font-bold text-primary">lint</span> Lint code
-          </li>
-          <li>
-            <span className="font-bold text-primary">format</span> Format code
-          </li>
-          <li>
-            <span className="font-bold text-primary">format:check</span> Check
-            code formatting
-          </li>
-          <li>
-            <span className="font-bold text-primary">typecheck</span> Check
-            types
-          </li>
-          <li>
-            <span className="font-bold text-primary">ci-check</span> Run all
-            checks
-          </li>
-        </ul>
-      </div>
+function BarChartIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="12" x2="12" y1="20" y2="10" />
+      <line x1="18" x2="18" y1="20" y2="4" />
+      <line x1="6" x2="6" y1="20" y2="16" />
+    </svg>
+  );
+}
 
-      <div className="space-y-2">
-        <h2 className="text-3xl font-semibold">PNPM Cheat Sheet</h2>
-        <ul className="list-disc ps-8 marker:text-2xl marker:text-primary-500/50">
-          <li>
-            <span className="font-bold text-primary">pnpm install</span> Install
-            dependencies
-          </li>
-          <li>
-            <span className="font-bold text-primary">
-              pnpm add &lt;dependency&gt;
-            </span>{" "}
-            Add dependencies (-D for devDependencies)
-          </li>
-          <li>
-            <span className="font-bold text-primary">
-              pnpm dlx &lt;package&gt;
-            </span>{" "}
-            like npx
-          </li>
-          <li>
-            <span className="font-bold text-primary">
-              pnpm run &lt;script&gt;
-            </span>{" "}
-            Run scripts (or just{" "}
-            <span className="font-bold text-primary">pnpm &lt;script&gt;</span>{" "}
-            if there is no command conflict)
-          </li>
-          <li>
-            <span className="font-bold text-primary">pnpm update</span> Update
-            dependencies
-          </li>
-        </ul>
-      </div>
-      {/* eslint-disable-next-line tailwindcss/no-contradicting-classname */}
-      <div className="fixed -bottom-1/3 -right-1/3 -z-10 h-[50rem] w-[50rem] animate-pulse rounded-full ![animation-duration:5s] [background-image:radial-gradient(circle_at_center,#9994_0,transparent,transparent_100%)]" />
-    </main>
+function BellIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+      <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+    </svg>
+  );
+}
+
+function BookIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+    </svg>
+  );
+}
+
+function DollarSignIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <line x1="12" x2="12" y1="2" y2="22" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+    </svg>
+  );
+}
+
+function PlusIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12h14" />
+      <path d="M12 5v14" />
+    </svg>
+  );
+}
+
+function SearchIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+    </svg>
+  );
+}
+
+function TextIcon(props: LucideProps) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M17 6.1H3" />
+      <path d="M21 12.1H3" />
+      <path d="M15.1 18H3" />
+    </svg>
   );
 }
