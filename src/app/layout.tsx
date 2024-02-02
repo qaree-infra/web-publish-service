@@ -14,16 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning className="h-full">
       <body className={cn("h-full antialiased", fontSans.className)}>
-        <Providers>
-          <div className="grid min-h-screen w-full lg:grid-cols-[280px_1fr]">
-            <SideNav />
-
-            <div className="flex flex-col">
-              <Header />
-              <div className="p-4 md:p-6">{children}</div>
-            </div>
-          </div>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

@@ -1,8 +1,3 @@
-/**
- * v0 by Vercel.
- * @see https://v0.dev/t/RcSrsTVQiNy
- * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
- */
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -34,7 +29,7 @@ export default function PublishForm() {
       </CardHeader>
       <CardContent>
         <form className="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="col-span-2 flex flex-col gap-4">
+          <div className="flex flex-col gap-4 md:col-span-2">
             <div className="grid gap-2">
               <Label htmlFor="book-name">Book Name</Label>
               <Input id="book-name" placeholder="Enter book name" />
