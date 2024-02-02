@@ -3,9 +3,12 @@
  * @see https://v0.dev/t/XX28XkNinv6
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
+
+"use client";
+
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -50,9 +53,12 @@ export default function SignUp() {
               type="password"
             />
           </div>
-          <Button className="w-full" type="submit">
+          <Link
+            className={buttonVariants({ className: "w-full" })}
+            href={"/author"}
+          >
             Sign Up to Qaree
-          </Button>
+          </Link>
         </div>
         <div className="space-y-4">
           <p className="text-center text-gray-500 dark:text-gray-400">
@@ -72,7 +78,7 @@ export default function SignUp() {
             Already have an account?{" "}
             <Link
               className="text-blue-600 underline dark:text-blue-400"
-              href="#"
+              href="/login"
             >
               Sign In
             </Link>

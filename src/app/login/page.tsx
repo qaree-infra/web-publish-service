@@ -5,7 +5,7 @@
  */
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
@@ -42,9 +42,12 @@ export default function Component() {
               type="password"
             />
           </div>
-          <Button className="w-full" type="submit">
+          <Link
+            className={buttonVariants({ className: "w-full" })}
+            href={"/author"}
+          >
             Login
-          </Button>
+          </Link>
         </div>
         <div className="space-y-4">
           <p className="text-center text-gray-500 dark:text-gray-400">
