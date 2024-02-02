@@ -44,7 +44,7 @@ function Header() {
               alt="Avatar"
               className="rounded-full"
               height="32"
-              src="/placeholder.svg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQABLAniiCmxndh9pB1YcBqPEQ7bH_DAPjCFLCFHtFJFIzzDCKzHt3lJIvSWICT-oZ33pI&usqp=CAU"
               style={{
                 aspectRatio: "32/32",
                 objectFit: "cover",
