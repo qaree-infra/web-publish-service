@@ -20,7 +20,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
             <div className="flex flex-col">
               <Header />
-              {children}
+              <div className="p-4 md:p-6">{children}</div>
             </div>
           </div>
         </Providers>

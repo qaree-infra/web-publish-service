@@ -1,7 +1,13 @@
 import React from "react";
 
+import PublishForm from "@/components/PublishForm";
+
 function Publish() {
-  return <div>Publish Page</div>;
+  return (
+    <div>
+      <PublishForm />
+    </div>
+  );
 }
 
 export default Publish;
