@@ -1,6 +1,4 @@
 import Title from "@/components/Title";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -14,19 +12,8 @@ export default function IndexPage() {
   return (
     <div className="flex flex-1 flex-col gap-4  md:gap-8 ">
       <Title text="Welcome, Dr.Mohamed Ali" />
-      <div className="rounded-lg border p-4 shadow-sm">
-        <form className="grid grid-cols-1 gap-4">
-          <Input className="py-2" type="file" />
-          <Input className="py-2" placeholder="Book Title" type="text" />
-          <Input className="py-2" placeholder="Genre" type="text" />
-          <Input className="py-2" placeholder="Publication Date" type="date" />
-          <Input className="py-2" placeholder="Status" type="text" />
-          <Button className="bg-primary py-2" type="submit">
-            Upload Book
-          </Button>
-        </form>
-      </div>
-      <div className="mt-4 rounded-lg border shadow-sm">
+
+      <div className="rounded-lg border shadow-sm">
         <Table>
           <TableHeader>
             <TableRow>
@@ -44,9 +31,8 @@ export default function IndexPage() {
               <TableCell>
                 <img
                   alt="Book cover"
-                  className="aspect-square rounded-md object-cover"
-                  height="64"
-                  src="/placeholder.svg"
+                  className="aspect-[517/750] object-cover"
+                  src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1433739169i/25685842.jpg"
                   width="64"
                 />
               </TableCell>
@@ -59,10 +45,9 @@ export default function IndexPage() {
               <TableCell>
                 <img
                   alt="Book cover"
-                  className="aspect-square rounded-md object-cover"
+                  className="aspect-[517/750] object-cover"
                   height="64"
-                  src="/placeholder.svg"
-                  width="64"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Kalila-wa-Dimna_1.jpg/1200px-Kalila-wa-Dimna_1.jpg"
                 />
               </TableCell>
               <TableCell className="font-medium">The Next Bestseller</TableCell>
@@ -76,9 +61,8 @@ export default function IndexPage() {
               <TableCell>
                 <img
                   alt="Book cover"
-                  className="aspect-square rounded-md object-cover"
-                  height="64"
-                  src="/placeholder.svg"
+                  className="aspect-[517/750] object-cover"
+                  src="https://archive.org/download/FP11950/cover.jpg"
                   width="64"
                 />
               </TableCell>
@@ -87,7 +71,7 @@ export default function IndexPage() {
               </TableCell>
               <TableCell className="hidden md:table-cell">Mystery</TableCell>
               <TableCell>April 2024</TableCell>
-              <TableCell className="hidden md:table-cell">Draft</TableCell>
+              <TableCell className="hidden md:table-cell">In Rview</TableCell>
             </TableRow>
           </TableBody>
         </Table>

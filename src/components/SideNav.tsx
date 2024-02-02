@@ -25,24 +25,25 @@ function SideNav() {
           <nav className="grid items-start px-4 text-sm font-medium">
             <Link
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
+              href="/author"
+            >
+              <Icons.book className="h-4 w-4" />
+              Home
+            </Link>
+            <Link
+              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
               href="/author/publish"
             >
               <Icons.plus className="h-4 w-4" />
               Add New Book
             </Link>
+
             <Link
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
+              href="/author/manage"
             >
-              <Icons.book className="h-4 w-4" />
+              <Icons.text className="h-4 w-4" />
               Manage Books
-            </Link>
-            <Link
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <Icons.bar className="h-4 w-4" />
-              Track Sales
             </Link>
             <Link
               className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
@@ -50,13 +51,6 @@ function SideNav() {
             >
               <Icons.dollar className="h-4 w-4" />
               Royalties
-            </Link>
-            <Link
-              className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-              href="#"
-            >
-              <Icons.text className="h-4 w-4" />
-              Reader Communications
             </Link>
           </nav>
         </div>
